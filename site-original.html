@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JACKDOW - O MELHOR SOFTWARE DA INTERNET!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', 'Arial', sans-serif;
+            font-size: 12px;
+            background: #008080;
+            padding: 15px;
+        }
+
+        /* Textura de fundo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 4px, transparent 4px, transparent 8px);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .main-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #c0c0c0;
+            border: 3px solid #dfdfdf;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            padding: 4px;
+        }
+
+        /* HEADER */
+        .header-banner {
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            padding: 10px;
+            border: 3px solid #fff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            text-align: center;
+        }
+
+        marquee {
+            background: #000080;
+            color: #ffff00;
+            font-weight: bold;
+            padding: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 5px 5px 0 #ff00ff, 8px 8px 0 #00ffff;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            letter-spacing: 5px;
+            background: #000;
+            padding: 5px 20px;
+            border: 4px solid #ff00ff;
+            border-right-color: #00ffff;
+            border-bottom-color: #00ffff;
+            transform: rotate(-2deg);
+        }
+
+        .construction {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #ffff00;
+            color: #ff0000;
+            font-weight: bold;
+            padding: 5px;
+            border: 2px solid #ff0000;
+            margin-top: 10px;
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .main-layout {
+            display: flex;
+            margin-top: 5px;
+            gap: 5px;
+        }
+
+        /* SIDEBAR ESQUERDA */
+        .sidebar-left {
+            width: 150px;
+            background: #c0c0c0;
+            padding: 5px;
+            border-right: 2px solid #fff;
+        }
+
+        .sidebar-table {
+            width: 100%;
+            background: #d4d0c8;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .sidebar-title {
+            background: #000080;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .win98-btn {
+            width: 100%;
+            padding: 8px 5px;
+            background: #c0c0c0;
+            border: 3px solid #fff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 2px 0;
+        }
+
+        .win98-btn:active {
+            border: 3px solid #404040;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .counter-box {
+            margin-top: 20px;
+            background: #000;
+            border: 3px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .counter-text {
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+            animation: glow 1s alternate infinite;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 2px #0f0; }
+            to { text-shadow: 0 0 8px #0f0; }
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .main-content {
+            flex: 1;
+            background: #d4d0c8;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 10px;
+        }
+
+        .welcome {
+            background: linear-gradient(45deg, #f00, #0f0, #00f);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border: 3px solid #ff0;
+            margin-bottom: 10px;
+        }
+
+        .content-grid {
+            display: flex;
+            gap: 10px;
+        }
+
+        .section-box {
+            flex: 1;
+            background: #d4d0c8;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 10px;
+        }
+
+        .section-title {
+            background: #000080;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-list li {
+            padding: 5px;
+            border-bottom: 1px dashed #808080;
+            font-family: 'Courier New', monospace;
+        }
+
+        .new-gif {
+            background: #f00;
+            color: #ff0;
+            font-weight: bold;
+            padding: 2px 5px;
+            margin-right: 5px;
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* JANELA CMD */
+        .cmd-window {
+            margin-top: 20px;
+            border: 4px solid #000;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            background: #000;
+        }
+
+        .cmd-header {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: #fff;
+            padding: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #808080;
+        }
+
+        .cmd-body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            padding: 10px;
+            min-height: 100px;
+        }
+
+        .cmd-cursor {
+            animation: blink 1s infinite;
+        }
+
+        .price {
+            display: block;
+            font-size: 18px;
+            color: #f00;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            animation: glow-red 1s alternate infinite;
+        }
+
+        @keyframes glow-red {
+            from { text-shadow: 0 0 2px #f00; }
+            to { text-shadow: 0 0 10px #f00; }
+        }
+
+        .download-area {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffa;
+            border: 4px solid #f00;
+            text-align: center;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 15px;
+            background: #0f0;
+            border: 4px solid #fff;
+            border-right-color: #008000;
+            border-bottom-color: #008000;
+            font-family: 'Impact', sans-serif;
+            font-size: 18px;
+            color: #000;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            padding: 5px;
+        }
+
+        /* SIDEBAR DIREITA */
+        .sidebar-right {
+            width: 120px;
+            background: #c0c0c0;
+            padding: 5px;
+            border-left: 2px solid #fff;
+        }
+
+        .right-box {
+            background: #d4d0c8;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 8px;
+        }
+
+        .right-title {
+            background: #808080;
+            color: #fff;
+            font-weight: bold;
+            padding: 4px;
+            margin: 5px 0;
+            text-align: center;
+            border: 2px solid #fff;
+            border-right-color: #000;
+            border-bottom-color: #000;
+        }
+
+        /* GUESTBOOK */
+        .guestbook-section {
+            margin-top: 10px;
+            background: #d4d0c8;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 10px;
+        }
+
+        .guest-entry {
+            background: #fff;
+            border: 2px solid #808080;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .guest-name {
+            font-weight: bold;
+            color: #800000;
+        }
+
+        .guest-msg {
+            margin-left: 10px;
+            color: #000080;
+        }
+
+        .win98-btn-small {
+            padding: 4px 8px;
+            background: #c0c0c0;
+            border: 2px solid #fff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 5px;
+            background: #c0c0c0;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #808080;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .copyright {
+            margin-top: 5px;
+            font-size: 10px;
+            color: #000;
+            font-family: 'Courier New', monospace;
+        }
+
+        blink {
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- HEADER -->
+        <div class="header-banner">
+            <marquee behavior="alternate" scrollamount="3">
+                ★★★★★ BEM-VINDO AO SITE OFICIAL DO JACKDOW! ★★★★★
+            </marquee>
+
+            <div class="logo-area">
+                <h1 class="main-title">J A C K D O W</h1>
+            </div>
+
+            <div class="construction">
+                <span>UNDER CONSTRUCTION</span>
+            </div>
+        </div>
+
+        <!-- LAYOUT PRINCIPAL -->
+        <div class="main-layout">
+            <!-- SIDEBAR ESQUERDA -->
+            <div class="sidebar-left">
+                <table class="sidebar-table" cellpadding="4" cellspacing="2">
+                    <tr><td class="sidebar-title">★ NAVEGAÇÃO ★</td></tr>
+                    <tr><td><button class="win98-btn" onclick="alert('HOME! VOCÊ JÁ ESTÁ AQUI!')">INÍCIO</button></td></tr>
+                    <tr><td><button class="win98-btn" onclick="alert('ABRINDO DOWNLOAD...')">DOWNLOAD</button></td></tr>
+                    <tr><td><button class="win98-btn" onclick="alert('LINK QUEBRADO :(')">GUESTBOOK</button></td></tr>
+                    <tr><td><button class="win98-btn" onclick="alert('ENVIE E-MAIL: JACKDOW@HOTMAIL.COM')">CONTATO</button></td></tr>
+                    <tr><td><button class="win98-btn" onclick="alert('SOBRE O SOFTWARE')">SOBRE</button></td></tr>
+                </table>
+
+                <div class="counter-box">
+                    <span class="counter-text">VISITAS: 084135</span>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO PRINCIPAL -->
+            <div class="main-content">
+                <div class="welcome">
+                    <blink>☆☆☆☆☆ BEM-VINDO AO MEU SITE PESSOAL DO JACKDOW! ☆☆☆☆☆</blink>
+                </div>
+
+                <div class="content-grid">
+                    <div class="section-box">
+                        <div class="section-title">★ O QUE HÁ DE NOVO ★</div>
+                        <ul class="news-list">
+                            <li><span class="new-gif">NEW!</span> 04/10/2002 - Versão 2.0 lançada!</li>
+                            <li><span class="new-gif">NEW!</span> 28/09/2002 - Agora com bypass UAC</li>
+                            <li><span class="new-gif">NEW!</span> 15/09/2002 - Corrigido bug do exploit</li>
+                            <li><span class="new-gif">NEW!</span> 01/09/2002 - Interface em CMD</li>
+                            <li><span class="new-gif">NEW!</span> 20/08/2002 - +50 funções novas</li>
+                        </ul>
+
+                        <div class="cmd-window">
+                            <div class="cmd-header">
+                                <span>C:\WINDOWS\SYSTEM32\CMD.EXE</span>
+                                <span>□ ×</span>
+                            </div>
+                            <div class="cmd-body" id="cmdBody">
+                                <p>C:\&gt; jackdow --scan</p>
+                                <p>Scanning system...</p>
+                                <p>3 threats detected!</p>
+                                <p>C:\&gt; <span class="cmd-cursor">_</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-box">
+                        <div class="section-title">★ SOBRE O SOFTWARE ★</div>
+                        <p style="font-size: 11px; line-height: 1.6;">
+                            JACKDOW é o software mais PODEROSO para Windows 95/98/ME/NT/2000!<br><br>
+                            ✔️ Mais de 500 funções de sistema<br>
+                            ✔️ Hacking tools avançadas<br>
+                            ✔️ Bypass de proteções<br>
+                            ✔️ Anti-forense<br>
+                            ✔️ Persistência<br>
+                            ✔️ 100% compatível com CMD<br>
+                            ✔️ 0 dependências<br><br>
+                            <span class="price">APENAS $19.99!</span>
+                        </p>
+
+                        <div class="download-area">
+                            <a href="jackdawn.bat" download>
+                                <button class="download-btn">
+                                    <span class="btn-front">CLIQUE AQUI PARA BAIXAR AGORA!</span>
+                                    <span class="btn-glow"></span>
+                                </button>
+                            </a>
+                            <div class="file-info">
+                                <span>jackdawn.bat</span>
+                                <span>1.42 MB</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- GUESTBOOK -->
+                <div class="guestbook-section">
+                    <div class="section-title">★ LIVRO DE VISITAS ★</div>
+                    <table width="100%" cellpadding="5" cellspacing="1">
+                        <tr><td class="guest-entry"><span class="guest-name">HackerMan2000:</span> <span class="guest-msg">Melhor software que já usei! 10/10</span></td></tr>
+                        <tr><td class="guest-entry"><span class="guest-name">WindowsFan:</span> <span class="guest-msg">Funciona perfeitamente no meu 98SE!</span></td></tr>
+                        <tr><td class="guest-entry"><span class="guest-name">LeetCoder:</span> <span class="guest-msg">Finalmente um site de verdade!!!</span></td></tr>
+                        <tr><td align="right"><button class="win98-btn-small" onclick="alert('Função não disponível!')">ASSINAR</button></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SIDEBAR DIREITA -->
+            <div class="sidebar-right">
+                <div class="right-box">
+                    <div class="right-title">★ LINKS ★</div>
+                    <div style="text-align: center; padding: 5px;">EM BREVE</div>
+
+                    <div class="right-title">★ WEBRINGS ★</div>
+                    <div style="text-align: center; padding: 5px;">[<<] [<] [>] [>>]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <marquee scrollamount="2">
+                JACKDOW - O SOFTWARE MAIS PODEROSO PARA WINDOWS 95/98/ME/NT/2000
+            </marquee>
+            <div class="copyright">
+                © 1998-2002 JACKDOW CORP. - TODOS OS DIREITOS RESERVADOS.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

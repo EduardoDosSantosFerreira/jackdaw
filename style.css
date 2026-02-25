@@ -1,0 +1,551 @@
+/* ============================================
+   WINDOWS 95 - FIDELIDADE ABSOLUTA
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+body.win95-desktop {
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', 'Arial', sans-serif;
+    font-size: 12px;
+    background-color: #008080;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* EFEITO CRT ANTIGO */
+.crt-effect::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, 
+        rgba(0, 0, 0, 0.15) 0px, 
+        rgba(0, 0, 0, 0.15) 2px, 
+        transparent 2px, 
+        transparent 4px);
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0.3;
+}
+
+.crt-effect::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0.2;
+}
+
+/* ===== TELA DE BOOT DO WINDOWS 95 ===== */
+.boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+}
+
+.boot-image {
+    max-width: 80%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin-bottom: 30px;
+    image-rendering: pixelated;
+    border: 2px solid #c0c0c0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.boot-progress {
+    width: 300px;
+    height: 20px;
+    background: #c0c0c0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.boot-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #000080, #1084d0);
+    animation: loading 3s linear forwards;
+}
+
+.boot-text {
+    font-size: 14px;
+    color: #c0c0c0;
+    text-shadow: 1px 1px 0 #000;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    20% { width: 20%; }
+    40% { width: 40%; }
+    60% { width: 60%; }
+    80% { width: 80%; }
+    100% { width: 100%; }
+}
+
+/* ===== ÍCONES DA ÁREA DE TRABALHO ===== */
+.desktop-icons {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.desktop-icon {
+    width: 75px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 0 #000;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+    image-rendering: pixelated;
+}
+
+.desktop-icon:hover {
+    background: rgba(0, 0, 128, 0.3);
+    border: 1px dotted white;
+}
+
+.desktop-icon:active {
+    background: rgba(0, 0, 128, 0.6);
+}
+
+.desktop-icon span {
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* ===== JANELA PADRÃO WINDOWS 95 ===== */
+.window {
+    position: absolute;
+    background: #c0c0c0;
+    border-top: 3px solid #dfdfdf;
+    border-left: 3px solid #dfdfdf;
+    border-right: 3px solid #404040;
+    border-bottom: 3px solid #404040;
+    box-shadow: 2px 2px 0 #000;
+    min-width: 600px;
+    min-height: 400px;
+    resize: both;
+    overflow: auto;
+    z-index: 10;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    padding: 4px 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    border-bottom: 2px solid #404040;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.title-bar-text {
+    display: flex;
+    align-items: center;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.title-bar-controls button {
+    width: 22px;
+    height: 22px;
+    background: #c0c0c0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.title-bar-controls button:active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.window-body {
+    width: 100%;
+    height: calc(100% - 30px);
+    background: #c0c0c0;
+    padding: 2px;
+}
+
+.window-body iframe {
+    width: 100%;
+    height: 100%;
+    border: 2px inset #e0e0e0;
+    background: white;
+}
+
+/* ===== BARRA DE TAREFAS ===== */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #c0c0c0;
+    border-top: 3px solid #dfdfdf;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    z-index: 100;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.start-button {
+    background: #c0c0c0;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #404040;
+    border-bottom: 3px solid #404040;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 32px;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.start-button:active {
+    border-top: 3px solid #404040;
+    border-left: 3px solid #404040;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+
+.taskbar-items {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.taskbar-item {
+    background: #c0c0c0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    padding: 5px 10px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 150px;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.taskbar-item.active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    background: #d4d0c8;
+}
+
+.taskbar-clock {
+    background: #c0c0c0;
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+/* ===== MENU INICIAR ===== */
+.start-menu {
+    position: fixed;
+    bottom: 45px;
+    left: 5px;
+    width: 280px;
+    background: #c0c0c0;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #404040;
+    border-bottom: 3px solid #404040;
+    display: none;
+    z-index: 200;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.start-menu.active {
+    display: flex;
+}
+
+.start-menu-left {
+    width: 40px;
+    background: linear-gradient(135deg, #000080, #000040);
+    color: white;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.start-menu-right {
+    flex: 1;
+    padding: 5px;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.start-menu-item:hover {
+    background: #000080;
+    color: white;
+}
+
+.start-menu-item img {
+    width: 20px;
+    height: 20px;
+    image-rendering: pixelated;
+}
+
+.start-menu-divider {
+    height: 2px;
+    background: #808080;
+    margin: 5px 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #404040;
+}
+
+/* ===== OVERLAY HACKER ===== */
+.hacker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.hacker-overlay.active {
+    display: flex;
+}
+
+.hacker-window {
+    width: 80%;
+    max-width: 800px;
+    height: 70%;
+    background: #000;
+    border-top: 3px solid #aaa;
+    border-left: 3px solid #aaa;
+    border-right: 3px solid #333;
+    border-bottom: 3px solid #333;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 0 #000;
+}
+
+.hacker-title {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: white;
+    padding: 5px;
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #333;
+}
+
+.hacker-controls {
+    color: #fff;
+    font-weight: bold;
+}
+
+.hacker-content {
+    flex: 1;
+    background: #000;
+    color: #0f0;
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 14px;
+    padding: 15px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    text-shadow: 0 0 5px #0f0;
+    line-height: 1.4;
+}
+
+/* Animações Hacker */
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-2px, -2px); }
+    20% { transform: translate(2px, 2px); }
+    30% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    50% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    70% { transform: translate(-2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    90% { transform: translate(-2px, -2px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes glitch {
+    0% { opacity: 1; transform: skew(0deg); }
+    2% { opacity: 0.8; transform: skew(2deg); filter: hue-rotate(90deg); }
+    4% { opacity: 1; transform: skew(0deg); filter: hue-rotate(0deg); }
+    96% { opacity: 1; transform: skew(0deg); }
+    98% { opacity: 0.8; transform: skew(-2deg); filter: hue-rotate(-90deg); }
+    100% { opacity: 1; transform: skew(0deg); }
+}
+
+@keyframes flash {
+    0% { background: #000; }
+    5% { background: #300; }
+    10% { background: #000; }
+    15% { background: #600; }
+    20% { background: #000; }
+    100% { background: #000; }
+}
+
+.hacker-shake {
+    animation: shake 0.2s infinite;
+}
+
+.hacker-glitch {
+    animation: glitch 0.3s infinite;
+}
+
+.hacker-flash {
+    animation: flash 0.3s infinite;
+}
+
+/* Linhas de erro */
+.error-line {
+    color: #f00;
+    text-shadow: 0 0 8px #f00;
+}
+
+.warning-line {
+    color: #ff0;
+    text-shadow: 0 0 8px #ff0;
+}
+
+.success-line {
+    color: #0f0;
+    text-shadow: 0 0 8px #0f0;
+}
+
+.glitch-text {
+    animation: glitch 0.2s infinite;
+}
+
+/* Scrollbar estilo retro */
+.hacker-content::-webkit-scrollbar {
+    width: 16px;
+    background: #c0c0c0;
+}
+
+.hacker-content::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .window {
+        min-width: 300px;
+        min-height: 250px;
+        width: 95% !important;
+        height: 80% !important;
+    }
+    
+    .hacker-window {
+        width: 95%;
+        height: 90%;
+    }
+    
+    .boot-image {
+        max-width: 95%;
+        max-height: 50vh;
+    }
+    
+    .boot-progress {
+        width: 250px;
+    }
+}
