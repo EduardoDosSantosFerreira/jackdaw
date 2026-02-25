@@ -1,0 +1,408 @@
+# 📘 README.md - JACKDOW 
+
+```markdown
+# JACKDOW
+
+![Windows 95 Boot Screen](https://s2-techtudo.glbimg.com/U826tW19cm7B-LFuexYn8uJVFug=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/tt2/f/original/2015/02/25/windows95_3.jpg)
+
+Uma recriação nostálgica e imersiva do Windows 95 com uma experiência hacker cinematográfica. Ao clicar em "Meu Computador" ou "Lixeira", o usuário é transportado para uma simulação de invasão em terminal, seguida pelo redirecionamento ao site original do JACKDOW - um toolkit completo para Windows com mais de 350 funcionalidades.
+
+---
+
+## 📋 Índice
+
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Características](#características)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura de Arquivos](#estrutura-de-arquivos)
+- [Instalação e Execução](#instalação-e-execução)
+- [Guia de Uso](#guia-de-uso)
+- [Funcionalidades do JACKDOW](#funcionalidades-do-jackdow)
+- [Personalização](#personalização)
+- [Solução de Problemas](#solução-de-problemas)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+- [Créditos](#créditos)
+
+---
+
+## 🎯 Sobre o Projeto
+
+**JACKDOW Windows 95 Hacker Edition** é uma experiência interativa que combina:
+
+1. **Fidelidade visual absoluta ao Windows 95** - Interface clássica com ícones pixelados, barra de tarefas, menu Iniciar e janelas com bordas 3D
+2. **Efeito CRT nostálgico** - Linhas de scan e vinheta para simular monitores antigos
+3. **Tela de boot autêntica** - Imagem clássica de inicialização com barra de progresso animada e som de startup
+4. **Experiência hacker cinematográfica** - Simulação de invasão em terminal CMD com efeitos visuais e sonoros
+5. **Integração com o toolkit JACKDOW** - Ao final da sequência hacker, o usuário acessa o site oficial com download do toolkit completo
+
+O projeto foi desenvolvido para entusiastas de retrô computing, profissionais de segurança e curiosos que desejam reviver a era de ouro do Windows 95 com um toque moderno e imersivo.
+
+---
+
+## ✨ Características
+
+### 🪟 Fidelidade ao Windows 95
+- ✅ Barra de tarefas idêntica à original
+- ✅ Botão Iniciar com menu funcional
+- ✅ Ícones pixelados na área de trabalho
+- ✅ Janelas com bordas 3D (bevel) e sombra
+- ✅ Tipografia MS Sans Serif em todos os elementos
+- ✅ Relógio na barra de tarefas atualizado em tempo real
+- ✅ Arrastar, minimizar, maximizar e fechar janelas
+
+### 📺 Efeitos Visuais
+- ✅ Efeito CRT com linhas de scan e vinheta
+- ✅ Animação de boot com barra de progresso
+- ✅ Transições suaves ao abrir/fechar janelas
+- ✅ Responsividade para dispositivos móveis
+
+### 🎵 Experiência Sonora
+- ✅ Som de inicialização do Windows 95
+- ✅ Cliques nos botões e ícones
+- ✅ Som de erro durante a invasão hacker
+- ✅ Som de digitação no terminal
+- ✅ Som de desligamento do sistema
+
+### 💻 Sequência Hacker Cinematográfica
+- ✅ Terminal CMD estilizado com fundo preto e texto verde
+- ✅ Digitação automática com timings variados
+- ✅ Mensagens realistas de invasão:
+  - Scanner de portas
+  - Exploração de vulnerabilidades (MS08-067)
+  - Bypass de firewall
+  - Acesso como NT AUTHORITY\SYSTEM
+  - Carregamento de módulos maliciosos
+- ✅ Efeitos visuais progressivos:
+  - Tremor de tela
+  - Glitch visual com distorção de cores
+  - Flash vermelho
+  - Ruído digital
+  - Escala da tela
+
+### 🔧 Toolkit JACKDOW
+- ✅ Mais de 350 funcionalidades organizadas em 49 categorias
+- ✅ Menu interativo no CMD
+- ✅ Compatível com Windows 98 até Windows 11
+- ✅ Zero dependências externas
+- ✅ Execução instantânea
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia | Versão | Finalidade |
+|------------|--------|------------|
+| HTML5 | - | Estrutura da interface |
+| CSS3 | - | Estilização e efeitos visuais |
+| JavaScript (ES6) | - | Interatividade e animações |
+| CMD/Batch | - | Toolkit JACKDOW |
+| Web Audio API | - | Reprodução de sons |
+
+### Dependências Externas
+- Ícones: [win98icons.alexmeub.com](https://win98icons.alexmeub.com)
+- Sons: [myinstants.com](https://www.myinstants.com)
+- Imagem de boot: Globo.com (fallback SVG incluso)
+
+---
+
+## 📁 Estrutura de Arquivos
+
+```
+JACKDOW-Windows95/
+│
+├── index.html              # Interface principal do Windows 95
+├── style.css               # Estilos completos com efeito CRT
+├── script.js               # Lógica de interação e sequência hacker
+├── site-original.html      # Site do toolkit JACKDOW
+├── jackdawn.bat            # Toolkit completo com 49 categorias
+├── jackdawinfo.txt         # Manual detalhado do toolkit
+└── README.md               # Documentação do projeto
+```
+
+### Descrição dos Arquivos
+
+| Arquivo | Descrição |
+|---------|-----------|
+| `index.html` | Desktop Windows 95 com ícones, barra de tarefas e janelas |
+| `style.css` | Estilos completos com efeito CRT, animações e responsividade |
+| `script.js` | Controla boot, sons, drag de janelas e sequência hacker |
+| `site-original.html` | Site oficial do JACKDOW com download do toolkit |
+| `jackdawn.bat` | Toolkit com 350+ funções em CMD (49 categorias) |
+| `jackdawinfo.txt` | Manual completo explicando todas as funcionalidades |
+
+---
+
+## 🚀 Instalação e Execução
+
+### Pré-requisitos
+- Navegador web moderno (Chrome, Firefox, Edge, Safari)
+- Conexão com internet (para carregar ícones e sons)
+- Windows (opcional, para executar o toolkit nativamente)
+
+### Passos para Execução
+
+1. **Clone ou baixe o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/jackdow-windows95.git
+   cd jackdow-windows95
+   ```
+
+2. **Abra o arquivo principal**
+   - Clique duas vezes em `index.html`
+   - Ou abra com seu navegador preferido
+
+3. **Aguarde a tela de boot**
+   - A imagem clássica do Windows 95 aparecerá
+   - Barra de progresso animada por 3.5 segundos
+   - Som de inicialização (pode exigir interação devido a políticas do navegador)
+
+4. **Explore a área de trabalho**
+   - Clique duas vezes nos ícones para interagir
+   - Teste o botão Iniciar
+   - Arraste a janela do Explorer
+
+---
+
+## 📖 Guia de Uso
+
+### 🖱️ Interações Básicas
+
+| Ação | Resultado |
+|------|-----------|
+| Duplo clique em **Internet Explorer** | Abre o site original diretamente |
+| Duplo clique em **Meu Computador** | Inicia sequência hacker |
+| Duplo clique em **Lixeira** | Inicia sequência hacker |
+| Clique em **Iniciar** | Abre menu com opções |
+| Clique em **Desligar** | Simula desligamento do Windows |
+| Arrastar barra de título | Move a janela |
+| Botões **_ , □ , ×** | Minimizar, maximizar, fechar |
+
+### 💀 Sequência Hacker
+
+Ao clicar em **Meu Computador** ou **Lixeira**:
+
+1. **Terminal CMD** aparece com fundo preto
+2. **Digitação automática** inicia com mensagens de invasão
+3. **Efeitos visuais** ativam-se progressivamente:
+   - 2s: Tela começa a tremer
+   - 4s: Glitch visual com distorção
+   - 6s: Flash vermelho
+   - 8s: Escala da tela aumenta
+   - 9s: Ruído digital
+4. **Clímax**: "SISTEMA COMPROMETIDO" com texto piscando
+5. **Redirecionamento**: Após 2s, abre o site original no Explorer
+
+### 📥 Download do Toolkit
+
+No site original, clique no botão verde para baixar o `jackdawn.bat`. Execute no CMD do Windows para acessar todas as 350+ funcionalidades.
+
+---
+
+## ⚙️ Funcionalidades do JACKDOW
+
+O toolkit `jackdawn.bat` oferece **49 categorias** com mais de **350 funcionalidades**:
+
+| Categoria | Descrição |
+|-----------|-----------|
+| 1-4 | Funcionalidades básicas (limpar tela, info sistema, ping, temporários) |
+| 5 | Gerenciamento do sistema (hibernação, SFC, BIOS, drivers) |
+| 6 | Desempenho (energia, processos, contadores) |
+| 7 | Atualizações (Winget, Chocolatey, Windows Update) |
+| 8 | Rede básica (IP, Wi-Fi, ping, tracert) |
+| 9 | Arquivos e discos (CHKDSK, defrag, backup) |
+| 10 | Processos e serviços (taskkill, sc, netstat) |
+| 11 | Utilitários avançados (shutdown, robocopy) |
+| 12 | Segurança e permissões (cacls, auditpol) |
+| 13 | Backup e restauração (registro, wbadmin) |
+| 14 | Registro do Windows (regedit, reg save) |
+| 15 | Gerenciamento de energia (powercfg) |
+| 16 | Diagnósticos avançados (mdsched, perfmon) |
+| 17 | Rede avançada (ARP, rotas, NetBIOS) |
+| 18 | Otimização do sistema (cleanmgr, prefetch) |
+| 19 | Gerenciamento de usuários (net user) |
+| 20 | Comandos diversos (calc, notepad, paint) |
+| 21 | Segurança e antimalware (Defender, MRT) |
+| 22 | Reparo do sistema (DISM, SFC) |
+| 23 | Análise de disco (arquivos duplicados, pastas vazias) |
+| 24 | Otimização automática (um clique) |
+| 25 | Registro avançado (backup completo) |
+| 26 | Monitoramento de rede (banda, portas) |
+| 27 | Serviços avançado (terceiros, consumo) |
+| 28 | Logs e auditoria (wevtutil) |
+| 29 | Drivers e hardware (backup, verificação) |
+| 30 | Usuários avançado (admin temporário) |
+| 31 | Backup avançado (perfil, certificados) |
+| 32 | Relatórios (suporte, hardware, software) |
+| 33 | Limpeza avançada (cache, logs) |
+| 34 | Interface (modo escuro, menu contexto) |
+| 35 | Hacking e pentest (scanner portas, simulações) |
+| 36 | Esteganografia (ocultar em imagem) |
+| 37 | Engenharia reversa (PE header, hex dump) |
+| 38 | Automação maliciosa (propagação USB) |
+| 39 | Keylogging (clipboard, histórico) |
+| 40 | Persistência (registro, startup) |
+| 41 | Anti-forense (limpeza de rastros) |
+| 42 | Exploits (verificação de vulnerabilidades) |
+| 43 | Criptografia forçada (EFS, hashes) |
+| 44 | Redes anônimas (proxy, Tor, VPN) |
+| 45 | Injeção de processos (simulações) |
+| 46 | Bypass de segurança (UAC, firewall) |
+| 47 | Coleta de intelligence (OSINT, whois) |
+| 48 | Manipulação de memória (simulações) |
+| 49 | Ataques de rede (ICMP flood) |
+
+### Como Usar o Toolkit
+
+1. Abra o Prompt de Comando como Administrador
+2. Navegue até a pasta com `jackdawn.bat`
+3. Execute: `jackdawn.bat`
+4. Digite o número da categoria desejada
+5. Siga as instruções na tela
+
+---
+
+## 🎨 Personalização
+
+### Alterar Imagem de Boot
+No arquivo `index.html`, localize:
+```html
+<img src="https://s2-techtudo.glbimg.com/..." alt="Windows 95 Startup" class="boot-image">
+```
+Substitua a URL pela imagem desejada.
+
+### Modificar Cores do Tema
+No `style.css`, ajuste as variáveis de cor:
+```css
+body.win95-desktop {
+    background-color: #008080; /* Altere para outra cor */
+}
+
+.title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0); /* Gradiente da barra */
+}
+```
+
+### Personalizar Sequência Hacker
+No `script.js`, edite o array `lines`:
+```javascript
+const lines = [
+    { text: 'Microsoft Windows 95 [Versão 4.00.950]', class: '' },
+    // Adicione ou modifique mensagens
+];
+```
+
+### Sons Personalizados
+Substitua as URLs no `index.html`:
+```html
+<audio id="startup-sound" src="seu-arquivo.mp3"></audio>
+```
+
+---
+
+## 🔧 Solução de Problemas
+
+### ❓ Som não toca no boot
+**Causa**: Navegadores bloqueiam áudio automático  
+**Solução**: Clique em qualquer lugar da tela durante o boot
+
+### ❓ Imagem de boot não carrega
+**Causa**: URL pode estar offline  
+**Solução**: O fallback SVG será exibido automaticamente
+
+### ❓ Janela não arrasta suavemente
+**Causa**: Problema de performance  
+**Solução**: Atualize a página e tente novamente
+
+### ❓ Sequência hacker não inicia
+**Causa**: Clique simples em vez de duplo  
+**Solução**: Use duplo clique nos ícones
+
+### ❓ Toolkit não executa no Windows
+**Causa**: Permissões insuficientes  
+**Solução**: Execute o CMD como Administrador
+
+### ❓ Erro "wevtutil não encontrado"
+**Causa**: Windows muito antigo  
+**Solução**: Algumas funções requerem Windows 7+
+
+---
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Siga estes passos:
+
+1. Faça um fork do projeto
+2. Crie uma branch (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abra um Pull Request
+
+### Diretrizes
+- Mantenha a fidelidade visual ao Windows 95
+- Documente novas funcionalidades
+- Teste em múltiplos navegadores
+- Siga o estilo de código existente
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+```
+MIT License
+
+Copyright (c) 2025 JACKDOW
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
+```
+
+---
+
+## 👏 Créditos
+
+### Desenvolvimento
+- **JACKDOW Team** - Conceito e implementação
+- **Comunidade Open Source** - Inspiração e suporte
+
+### Recursos Visuais
+- [Windows 98 Icons](https://win98icons.alexmeub.com) - Ícones oficiais
+- [Globo.com](https://globo.com) - Imagem de boot
+- [MyInstants](https://www.myinstants.com) - Efeitos sonoros
+
+### Agradecimentos Especiais
+- Microsoft pelo legado do Windows 95
+- Comunidade retrô computing
+- Todos os testers e contribuidores
+
+---
+
+## 🎉 Agradecimento Final
+
+Obrigado por explorar o **JACKDOW Windows 95 Hacker Edition**! Esperamos que esta viagem nostálgica tenha sido tão divertida para você quanto foi para nós desenvolvermos. 
+
+**Aviso**: As funcionalidades de hacking são simuladas e educacionais. Use apenas em seus próprios sistemas ou com autorização explícita.
+
+**Divirta-se!** 🖥️💚
+```
+
+---
+
+## ✅ O README inclui:
+
+1. **Visão geral do projeto** com imagem de destaque
+2. **Índice completo** para navegação rápida
+3. **Características detalhadas** divididas por categoria
+4. **Tecnologias utilizadas** com tabela explicativa
+5. **Estrutura de arquivos** completa
+6. **Instalação e execução** passo a passo
+7. **Guia de uso** com todas as interações
+8. **Descrição completa do toolkit** com 49 categorias
+9. **Personalização** com exemplos práticos
+10. **Solução de problemas** para issues comuns
+11. **Guia de contribuição**
+12. **Licença** e **créditos**
+
+Perfeito para documentar seu projeto profissionalmente! 🚀

